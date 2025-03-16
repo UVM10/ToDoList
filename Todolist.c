@@ -30,14 +30,13 @@ int main(int argc[], char *argv[])
                 printf("Enter task's title: ");
                 scanf("%s", Temp_title);
                 printf("Enter task's status: ");
-                scanf("%d", Temp_status);
-                while(getchar() != '/n');
+                scanf("%d", &Temp_status);
                 strcpy(Title[current_id], Temp_title);
                 Task_Status[current_id] = Temp_status;
-                current_id++;
                 printf("Task's title is: %s\n", Title[current_id]);
                 printf("Task's status is: %d\n", Task_Status[current_id]);
                 printf("New task successfully added!\n");
+                current_id++;
                 break;
         }
     }
