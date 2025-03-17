@@ -4,11 +4,11 @@
 #define Task_Amount 100
 #define Task_Length 32
 
-char Temp_title[Task_Length], Title[Task_Amount][Task_Length] = {};
-int Temp_status, Task_Status[Task_Amount] = {};
+char Temp_title[Task_Length], Title[Task_Amount][Task_Length] = {'\0'};
+int Temp_status, Task_Status[Task_Amount] = {0};
 int current_id = 0;
 
-int main(int argc[], char *argv[])
+int main(int argc, char *argv[])
 {
     while (1)
     {
@@ -27,6 +27,7 @@ int main(int argc[], char *argv[])
         switch (option)
         {
         case 1:
+            printf("There are %d tasks now.\n", current_id);
             printf("Enter task's title: ");
             scanf("%s", Temp_title);
             printf("Enter task's status: ");
@@ -39,15 +40,20 @@ int main(int argc[], char *argv[])
             current_id++;
             break;
         case 2:
-            printf("Enter task's ID you want to delete (0 ~ %d): ", current_id);
+            if (current_id == 0)
+            {
+                printf("There is no task!\n");
+                break;
+            }
+            printf("Enter task's ID you want to delete (1 ~ %d): ", current_id);
             int delete_id;
             scanf("%d", &delete_id);
-            if (delete_id < 0 || delete_id >= current_id)
+            if (delete_id < 1 || delete_id >= current_id)
             {
                 printf("Invalid ID!\n");
                 break;
             }
-            for (int i = delete_id; i < current_id - 1; i++)
+            for (int i = delete_id - 1; i < current_id - 1; i++)
             {
                 strcpy(Title[i], Title[i + 1]);
                 Task_Status[i] = Task_Status[i + 1];
@@ -56,6 +62,21 @@ int main(int argc[], char *argv[])
             printf("Task successfully deleted!\n");
             break;
         case 3:
+            if (current_id == 0)
+            {
+                printf("There is no task!\n");
+                break;
+            }
+            printf("+-----+----------------------------------+--------+\n");
+            printf("| ID  | Title                            | Status |\n");
+            printf("+-----+----------------------------------+--------+\n");
+            for (int i = 0; i < current_id; i++)
+            {
+                printf("| %3d | %-32s | %6d |\n", i + 1, Title[i], Task_Status[i]);
+                printf("+-----+----------------------------------+--------+\n");
+            }
+            break;
+        case 5:
             while (1)
             {
                 printf("Do you want to save all tasks? (Enter Y/N): ");
@@ -67,6 +88,7 @@ int main(int argc[], char *argv[])
                     printf("Your data has been saved!\n");
                     return 0;
                 case 'N':
+                    current_id = 0;
                     printf("Your data has been deleted!\n");
                     return 0;
                 default:
