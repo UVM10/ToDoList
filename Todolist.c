@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define Task_Amount 100
 #define Task_Length 32
@@ -7,6 +8,20 @@
 char Temp_title[Task_Length], Title[Task_Amount][Task_Length] = {'\0'};
 int Temp_status, Task_Status[Task_Amount] = {0};
 int current_id = 0;
+
+bool ADDTASK(){}
+
+bool DELETETASK(){}
+
+bool EDITTASK(){}
+
+void SEARCHTASK_SORTING_Table(){}
+
+void SEARCHTASK_SORTING_ShowTask(){}
+
+void SEARCHTASK_Search(){}
+
+void SORTING_SortTask(){}
 
 int main(int argc, char *argv[])
 {
@@ -75,6 +90,30 @@ int main(int argc, char *argv[])
                 printf("| %3d | %-32s | %6d |\n", i + 1, Title[i], Task_Status[i]);
                 printf("+-----+----------------------------------+--------+\n");
             }
+            break;
+        case 4: 
+            if (current_id == 0)
+            {
+                printf("There is no task!\n");
+                break;
+            }
+            printf("Enter task's ID you want to modify (1 ~ %d): ", current_id);
+            int modify_id;
+            scanf("%d", &modify_id);
+            if (modify_id < 1 || modify_id >= current_id)
+            {
+                printf("Invalid ID!\n");
+                break;
+            }
+            printf("Enter task's title: ");
+            scanf("%s", Temp_title);
+            printf("Enter task's status: ");
+            scanf("%d", &Temp_status);
+            strcpy(Title[modify_id - 1], Temp_title);
+            Task_Status[modify_id - 1] = Temp_status;
+            printf("Task's title is: %s\n", Title[modify_id - 1]);
+            printf("Task's status is: %d\n", Task_Status[modify_id - 1]);
+            printf("Task has been successfully modified!\n");
             break;
         case 5:
             while (1)
