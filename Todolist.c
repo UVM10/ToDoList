@@ -83,7 +83,7 @@ bool EDITTASK()
     return 1;
 }
 
-void SEARCHTASK_SORTING_Table()
+void SORTING_Table()
 {
     printf("+-----+----------------------------------+--------+\n");
     printf("| ID  | Title                            | Status |\n");
