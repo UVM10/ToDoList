@@ -1,0 +1,6 @@
+*
+*.txt
+!*.sh
+!*.c
+!.gitignore
+HelloUser.c
