@@ -2,4 +2,4 @@
 
 mkdir -p build
 
-gcc -o "build/ToDoList" main main.c
+gcc -o "build/ToDoList" main.c
