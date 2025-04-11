@@ -49,7 +49,11 @@ sudo apt install git build-essential -y
 - Clone the repository: 
     ```sh
     git clone https://github.com/UVM10/ToDoList.git
-    ```  
+    ```
+- Move to ToDoList directory:
+    ```sh
+    cd ToDoList
+    ```
 - Allow using all scripts: 
     ```sh
     chmod +x ./utils/build.sh
