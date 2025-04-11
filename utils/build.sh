@@ -1,5 +1,5 @@
 #!/bin/bash
 
-mkdir -p build
+mkdir -p ./utils/build
 
-gcc -o "build/ToDoList" main.c
+gcc -o "utils/build/ToDoList" main.c
