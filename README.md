@@ -1,5 +1,4 @@
-**TODOLIST**
----
+# TODOLIST PROGRAM
 
 ## 1. Overview
 
@@ -12,7 +11,6 @@
     - Sort tasks list by completion rate
 - This program provide users a simple and light-weight tool for checking and  managing tasks.
 
----
 
 ## 2. Features
 
@@ -22,9 +20,8 @@
 - Search task: Search task by name.
 - Sort tasks: Sort tasks by completion rate and display table of tasks.
 
-![Function_Diagram.drawio.png](docs/Function_Diagram.drawio.png)
+![function_diagram.drawio.png](docs/function_diagram.drawio.png)
 
----
 
 ## 3. Getting Started
 
@@ -34,48 +31,52 @@
 - git (Tested successfully on version 2.43.0)
 - GCC (Tested successfully on version 13.3.0)
 
-You can check if your computer has git and GCC by using:
+You can check if your computer has `git` and `GCC` by using:
 
-```bash
+```sh
 git --version
 gcc --version
 ```
 
 Install them by using:
 
-```bash
+```sh
 sudo apt install git build-essential -y
 ```
 
 ### 3.2. Quick Start
 
-- Move to folder where you want clone the repository and clone the repository:
+- Clone the repository:
     
-    ```bash
+    ```sh
     git clone https://github.com/UVM10/ToDoList.git
     ```
     
-- Move to *utils/* folder and use these command:
-    - Allow using scripts in order:
+- Run program:
+    - Move to `utils` directory:
+        ```sh
+        cd ToDoList/utils       
+        ```   
+    - Allow using all scripts:
         
-        ```bash
+        ```sh
         chmod +x build.sh clean.sh run.sh
         ```
         
     - Build program:
         
-        ```bash
+        ```sh
         ./build.sh
         ```
         
     - Run program:
         
-        ```bash
+        ```sh
         ./run.sh
         ```
         
     - Clean up files generated when build and run program:
         
-        ```bash
+        ```sh
         ./clean.sh
         ```
