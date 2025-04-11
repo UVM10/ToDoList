@@ -46,37 +46,28 @@ sudo apt install git build-essential -y
 
 ### 3.2. Quick Start
 
-- Clone the repository:
-    
+- Clone the repository: 
     ```sh
     git clone https://github.com/UVM10/ToDoList.git
+    ```  
+- Move to `utils` directory:
+    ```sh
+    cd ToDoList/utils       
     ```
-    
+- Allow using all scripts: 
+    ```sh
+    chmod +x build.sh clean.sh run.sh
+    ```    
+- Build program:
+    ```sh
+    ./build.sh
+    ```    
 - Run program:
-    - Move to `utils` directory:
-        ```sh
-        cd ToDoList/utils       
-        ```   
-    - Allow using all scripts:
+    ```sh
+    ./run.sh
+    ```
+- Clean up files generated:
         
-        ```sh
-        chmod +x build.sh clean.sh run.sh
-        ```
-        
-    - Build program:
-        
-        ```sh
-        ./build.sh
-        ```
-        
-    - Run program:
-        
-        ```sh
-        ./run.sh
-        ```
-        
-    - Clean up files generated when build and run program:
-        
-        ```sh
-        ./clean.sh
-        ```
+    ```sh
+    ./clean.sh
+    ```
