@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./utils/build/ToDoList
+./build/ToDoList
