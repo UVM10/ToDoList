@@ -50,24 +50,22 @@ sudo apt install git build-essential -y
     ```sh
     git clone https://github.com/UVM10/ToDoList.git
     ```  
-- Move to `utils` directory:
-    ```sh
-    cd ToDoList/utils       
-    ```
 - Allow using all scripts: 
     ```sh
-    chmod +x build.sh clean.sh run.sh
+    chmod +x ./utils/build.sh
+    chmod +x ./utils/clean.sh
+    chmod +x ./utils/run.sh
     ```    
 - Build program:
     ```sh
-    ./build.sh
+    ./utils/build.sh
     ```    
 - Run program:
     ```sh
-    ./run.sh
+    ./utils/run.sh
     ```
 - Clean up files generated:
         
     ```sh
-    ./clean.sh
+    ./utils/clean.sh
     ```
