@@ -172,7 +172,6 @@ int main(int argc, char *argv[])
             break;
         case 3:
             SORTING_SortTask();
-            SEARCHTASK_SORTING_Table();
             break;
         case 4:
 
