@@ -56,6 +56,7 @@ int main()
             break;
         case 3:
             SORTING_SortTask();
+            SORTING_Table();
             break;
         case 4:
 
