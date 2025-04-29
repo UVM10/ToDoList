@@ -2,14 +2,14 @@
 
 ## 1. Overview
 
-- To-do list is a CLI program for managing tasks.
+- Objective: Ceate an app for managing tasks easily on CLI
 - Functions:
     - Add task
     - Delete task
     - Edit task
     - Search tasks by names
     - Sort tasks list by completion rate
-- This program provide users a simple and light-weight tool for checking and  managing tasks.
+- Goal: An user-friendly and minimal app with basic functions.
 
 
 ## 2. Features
@@ -26,6 +26,8 @@
 ## 3. Getting Started
 
 ### 3.1. Prerequisites
+
+You will need following tools for running To-do list:
 
 - OS: Ubuntu (Tested successfully on version 24.04.2 LTS)
 - git (Tested successfully on version 2.43.0)
@@ -46,20 +48,22 @@ sudo apt install git build-essential -y
 
 ### 3.2. Quick Start
 
-- Clone the repository: 
+If
+
+Step 1: Clone the repository: 
     ```sh
     git clone https://github.com/UVM10/ToDoList.git
     ```
+Step 2: Setup
 - Move to ToDoList directory:
     ```sh
     cd ToDoList
     ```
 - Allow using all scripts: 
     ```sh
-    chmod +x ./utils/build.sh
-    chmod +x ./utils/clean.sh
-    chmod +x ./utils/run.sh
+    chmod +x ./utils/build.sh ./utils/clean.sh ./utils/run.sh
     ```    
+Step 3: How to run the app
 - Build program:
     ```sh
     ./utils/build.sh
