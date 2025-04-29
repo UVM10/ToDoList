@@ -3,4 +3,5 @@
 !*.c
 !.gitignore
 HelloUser.c
-
+.vscode/
+build/
