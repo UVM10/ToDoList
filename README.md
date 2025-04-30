@@ -48,12 +48,11 @@ sudo apt install git build-essential -y
 
 ### 3.2. Quick Start
 
-If
-
 Step 1: Clone the repository: 
     ```sh
     git clone https://github.com/UVM10/ToDoList.git
     ```
+
 Step 2: Setup
 - Move to ToDoList directory:
     ```sh
