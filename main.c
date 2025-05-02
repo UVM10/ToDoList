@@ -2,34 +2,46 @@
 #include <string.h>
 #include <stdbool.h>
 
-bool ADDTASK(void);
+#define Task_Amount 100
+#define Task_Title_Length 33
+#define ID_Length 9
 
-bool DELETETASK(void);
+typedef struct 
+{
+    char Title[Task_Title_Length];
+    int Status;
+    char ID[ID_Length];
+}Task;
 
-void SORTING_Table(void);
+bool ADDTASK(Task *task);
 
-void SEARCHTASK_Search(void);
+bool DELETETASK(Task *tasks);
 
-bool EDITTASK(void);
+void SORTING_Table(Task *tasks);
 
-void SORTING_SortTask(void);
+void SORTING_SortTask(Task *tasks, int left, int right);
+
+bool EDITTASK(Task *tasks);
+
+void SEARCHTASK_Search(Task *tasks);
 
 int main(void);
 
-#define Task_Amount 100
-#define Task_Length 32
-
-char Temp_title[Task_Length], Title[Task_Amount][Task_Length] = {'\0'};
-int Temp_status, Task_Status[Task_Amount] = {0};
-int current_id = 0;
+int current_index = 0;
 
 int main()
 {
+    Task tasks[Task_Amount];
+
     while (1)
     {
         unsigned int option;
         
         printf("==============TODOLIST==============\n");
+        printf("There are some requirement you need to know:\n");
+        printf("1. Task's title: 32 characters or less than that.\n");
+        printf("2. Task's ID format: DDMMYYNN.\n   DD: Day, MM: Month, YY: Year, NN: Number(00~99).\n");
+        printf("====================================\n");
         printf("1. Add a task\n");
         printf("2. Delete a task\n");
         printf("3. Sort all task by status and show\n");
@@ -46,26 +58,26 @@ int main()
         {
         case 1:
             bool check_1;
-            check_1 = ADDTASK();
+            check_1 = ADDTASK(tasks);
             check_1 ? printf("Task has been successfully added!\n") : printf("Task has not been added!\n");
             break;
         case 2:
             bool check_2; 
-            check_2 = DELETETASK();
+            check_2 = DELETETASK(tasks);
             check_2 ? printf("Task has been successfully deleted!\n") : printf("Task has not been deleted!\n");
             break;
         case 3:
-            SORTING_SortTask();
-            SORTING_Table();
+            SORTING_SortTask(tasks, 0, current_index - 1);
+            SORTING_Table(tasks);
             break;
         case 4:
 
             bool check_3;
-            check_3 = EDITTASK();
+            check_3 = EDITTASK(tasks);
             check_3 ? printf("Task has been successfully modified!\n") : printf("Task has not been modified!\n");
             break;
         case 5:
-            SEARCHTASK_Search();
+            SEARCHTASK_Search(tasks);
             break;
         case 6:
             printf("Exit!\n");
@@ -77,137 +89,155 @@ int main()
     }
 }
 
-bool ADDTASK()
+bool ADDTASK(Task *task)
 {
-    printf("There are %d tasks now.", current_id);
-    printf("\nEnter task's title: ");
-    fgets(Temp_title, Task_Length, stdin);
-    Temp_title[strcspn(Temp_title, "\n")] = 0;
-    printf("Enter task's status: ");
-    scanf("%d", &Temp_status);
-    while (getchar() != '\n');
-    strcpy(Title[current_id], Temp_title);
-    Task_Status[current_id] = Temp_status;
-    printf("Task's title is: %s\n", Title[current_id]);
-    printf("Task's status is: %d\n", Task_Status[current_id]);
-    current_id++;
-    if ((strcmp(Title[current_id - 1], Temp_title) == 0) && (Task_Status[current_id - 1] == Temp_status))
-        return true;
-    else
+    int id_length = 0;
+    if (current_index >= Task_Amount)
+    {
+        printf("Task list is full!\n");
         return false;
-}
-
-bool DELETETASK()
-{
-    int delete_id;
-    if (current_id == 0)
-    {
-        printf("There is no task!\n");
-        return 0;
-    }
-    printf("Enter task's ID you want to delete (1 ~ %d): ", current_id);
-    scanf("%d", &delete_id);
-    while (getchar() != '\n');
-    if (delete_id < 1 || delete_id >= current_id)
-    {
-        printf("Invalid ID!\n");
-        return 0;
-    }
-    for (int i = delete_id - 1; i < current_id - 1; i++)
-    {
-        strcpy(Title[i], Title[i + 1]);
-        Task_Status[i] = Task_Status[i + 1];
-    }
-    current_id--;
-    return 1;
-}
-
-bool EDITTASK()
-{
-    int modify_id;
-    if (current_id == 0)
-    {
-        printf("There is no task!\n");
-        return 0;
-    }
-    printf("Enter task's ID you want to modify (1 ~ %d): ", current_id);
-    scanf("%d", &modify_id);
-    while(getchar() != '\n');
-    if (modify_id < 1 || modify_id > current_id)
-    {
-        printf("Invalid ID!\n");
-        return 0;
     }
     printf("Enter task's title: ");
-    fgets(Temp_title, Task_Length, stdin);
-    Temp_title[strcspn(Temp_title, "\n")] = 0;
+    fgets(task[current_index].Title, Task_Title_Length, stdin);
+    task[current_index].Title[strcspn(task[current_index].Title, "\n")] = 0;
     printf("Enter task's status: ");
-    scanf("%d", &Temp_status);
+    scanf("%d", &task[current_index].Status);
     while (getchar() != '\n');
-    strcpy(Title[modify_id - 1], Temp_title);
-    Task_Status[modify_id - 1] = Temp_status;
-    printf("Task's title is: %s\n", Title[modify_id - 1]);
-    printf("Task's status is: %d\n", Task_Status[modify_id - 1]);
-    return 1;
+    printf("Enter task's ID(DDMMYYNN): ");
+    fgets(task[current_index].ID, ID_Length, stdin);
+    task[current_index].ID[strcspn(task[current_index].ID, "\n")] = 0;
+    id_length = strlen(task[current_index].ID);
+    while(id_length != ID_Length - 1)
+    {
+        printf("Your ID must be in form. Please enter ID again: ");
+        fgets(task[current_index].ID, ID_Length, stdin);
+        task[current_index].ID[strcspn(task[current_index].ID, "\n")] = 0;
+        id_length = strlen(task[current_index].ID);
+    }
+    printf("Task's title is: %s\n", task[current_index].Title);
+    printf("Task's status is: %d\n", task[current_index].Status);
+    printf("Task's ID is: %s\n", task[current_index].ID);
+    current_index++;
+    return true;
 }
 
-void SORTING_Table()
+bool DELETETASK(Task *task)
 {
-    printf("+-----+----------------------------------+--------+\n");
-    printf("| ID  | Title                            | Status |\n");
-    printf("+-----+----------------------------------+--------+\n");
-
-    for (int i = 0; i < current_id; i++)
+    int delete_id;
+    if (current_index == 0)
     {
-        printf("| %3d | %-32s | %6d |\n", i + 1, Title[i], Task_Status[i]);
-        printf("+-----+----------------------------------+--------+\n");
+        printf("There is no task!\n");
+        return false;
+    }
+    printf("Enter task's ID you want to delete (1 ~ %d): ", current_index);
+    scanf("%d", &delete_id);
+    while(getchar() != '\n');
+    if (delete_id < 1 || delete_id > current_index)
+    {
+        printf("Invalid ID!\n");
+        return false;
+    }
+    for (int i = delete_id - 1; i < current_index - 1; i++)
+    {
+        task[i] = task[i + 1];
+    }
+    task[current_index - 1].Title[0] = '\0'; // Clear the last task
+    task[current_index - 1].Status = 0;
+    task[current_index - 1].ID[0] = '\0'; // Clear the last task ID
+    current_index--;
+    return true;
+}
+
+void SORTING_Table(Task *task)
+{
+    printf("+----------+----------------------------------+--------+\n");
+    printf("| ID       | Title                            | Status |\n");
+    printf("+----------+----------------------------------+--------+\n");
+
+    for (int i = 0; i < current_index; i++)
+    {
+        printf("| %-8s | %-32s | %6d |\n", task[i].ID, task[i].Title, task[i].Status);
+        printf("+----------+----------------------------------+--------+\n");
     }
 }
 
-void SEARCHTASK_Search()
+void SORTING_SortTask(Task *tasks, int left, int right)
 {
-    unsigned count = 0;
-    printf("Enter task's title you want to search: ");
-    fgets(Temp_title, Task_Length, stdin);
-    Temp_title[strcspn(Temp_title, "\n")] = 0;
-    for (int i = 0; i < current_id; i++)
+    int sort, i, j;
+
+    if (left >= right) return;
+
+    sort = tasks[(left + right) / 2].Status;
+    i = left;
+    j = right;
+
+    while (i <= j)
     {
-        if (strstr(Title[i], Temp_title) != NULL)
+        while (tasks[i].Status < sort) i++;
+        while (tasks[j].Status > sort) j--;
+        if (i <= j)
         {
-            printf("%d. %s : %d\n", i + 1, Title[i], Task_Status[i]);
+            Task temp = tasks[i];
+            tasks[i] = tasks[j];
+            tasks[j] = temp;
+            i++; j--;
+        }
+    }
+
+    SORTING_SortTask(tasks, left, j);
+    SORTING_SortTask(tasks, i, right);
+}
+
+bool EDITTASK(Task *task)
+{
+    int modify_id;
+    if (current_index == 0)
+    {
+        printf("There is no task!\n");
+        return false;
+    }
+    printf("Enter task's ID you want to modify (1 ~ %d): ", current_index);
+    scanf("%d", &modify_id);
+    while(getchar() != '\n');
+    if (modify_id < 1 || modify_id > current_index)
+    {
+        printf("Invalid ID!\n");
+        return false;
+    }
+    printf("Enter task's title: ");
+    fgets(task[modify_id - 1].Title, Task_Title_Length, stdin);
+    task[modify_id - 1].Title[strcspn(task[modify_id - 1].Title, "\n")] = 0;
+    printf("Enter task's status: ");
+    scanf("%d", &task[modify_id - 1].Status);
+    while (getchar() != '\n');
+    printf("Task's title is: %s\n", task[modify_id - 1].Title);
+    printf("Task's status is: %d\n", task[modify_id - 1].Status);
+    return true;
+}
+
+void SEARCHTASK_Search(Task *task)
+{
+    char search_title[Task_Title_Length];
+    int count = 0;
+    printf("Enter task's title you want to search: ");
+    fgets(search_title, Task_Title_Length, stdin);
+    search_title[strcspn(search_title, "\n")] = 0;
+
+    for (int i = 0; i < current_index; i++)
+    {
+        if(strstr(task[i].Title, search_title) != NULL)
+        {
+            printf("%s. %s: %d\n", task[i].ID, task[i].Title, task[i].Status);
             count++;
         }
     }
     if (count == 0)
     {
-        printf("No task found!\n");
+        printf("No task found.\n");
     }
-}
-
-void SORTING_SortTask()
-{
-    for (int i = 0; i < current_id; i++)
+    else
     {
-        int status_min_index = i;
-        for (int j = i + 1; j < current_id; j++)
-        {
-            if (Task_Status[j] <= Task_Status[status_min_index])
-            {
-                status_min_index = j;
-            }
-        }
-        if (status_min_index != i)
-        {
-            int status_min = Task_Status[i];
-            char status_min_title[Task_Length];
-
-            Task_Status[i] = Task_Status[status_min_index];
-            Task_Status[status_min_index] = status_min;
-
-            strcpy(status_min_title, Title[i]);
-            strcpy(Title[i], Title[status_min_index]);
-            strcpy(Title[status_min_index], status_min_title);
-        }
+        printf("%d task(s) found.\n", count);
     }
 }
 
