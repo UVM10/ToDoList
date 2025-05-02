@@ -29,9 +29,9 @@
 
 - OS: Ubuntu (Tested successfully on version 24.04.2 LTS)
 - git (Tested successfully on version 2.43.0)
-- GCC (Tested successfully on version 13.3.0)
+- gcc (Tested successfully on version 13.3.0)
 
-You can check if your computer has `git` and `GCC` by using:
+You can check if your computer has `git` and `gcc` by using:
 
 ```sh
 git --version
@@ -56,9 +56,7 @@ sudo apt install git build-essential -y
     ```
 - Allow using all scripts: 
     ```sh
-    chmod +x ./utils/build.sh
-    chmod +x ./utils/clean.sh
-    chmod +x ./utils/run.sh
+    chmod +x ./utils/build.sh ./utils/clean.sh ./utils/run.sh
     ```    
 - Build program:
     ```sh
