@@ -167,29 +167,29 @@ void SHOW_TASK(task *task)
 
 void SORT_TASK(task *tasks, int left, int right)
 {
-    int sort, i, j;
+    int sort, left_temp, right_temp;
 
     if (left >= right) return;
 
     sort = tasks[(left + right) / 2].status;
-    i = left;
-    j = right;
+    left_temp = left;
+    right_temp = right;
 
-    while (i <= j)
+    while (left_temp <= right_temp)
     {
-        while (tasks[i].status < sort) i++;
-        while (tasks[j].status > sort) j--;
-        if (i <= j)
+        while (tasks[left_temp].status < sort) i++;
+        while (tasks[right_temp].status > sort) j--;
+        if (left_temp <= right_temp)
         {
-            task temp = tasks[i];
-            tasks[i] = tasks[j];
-            tasks[j] = temp;
-            i++; j--;
+            task temp = tasks[left_temp];
+            tasks[left_temp] = tasks[right_temp];
+            tasks[right_temp] = temp;
+            left_temp++; right_temp--;
         }
     }
 
-    SORTING_SortTask(tasks, left, j);
-    SORTING_SortTask(tasks, i, right);
+    SORTING_SortTask(tasks, left, right_temp);
+    SORTING_SortTask(tasks, left_temp, right);
 }
 
 bool EDIT_TASK(task *task)
