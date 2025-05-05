@@ -4,7 +4,6 @@
     + Names must be meaningful, not abbreviated
     + Maximum length of 20 characters. 
     + Main noun of name must come first.
-    + Do not use number in name. 
  
 - Function's name:
     + Using `Pascal_Snake_Case`.
@@ -110,9 +109,16 @@ Process_Data();
 - Using `// ...` to clarify complex logic non-obvious code inside function:
     + Comments must be direct above code. 
     + Comment of a block of code must be summarized directly above block. 
+    + Explain what is functions' purpose directly above function definition.
 - e.g:
 ```c
-//matrix multiplication -> summary
+// Explain what is functions' purpose
+// Function to add a task
+bool System_Task_Add()
+{
+    // function body
+}
+// matrix multiplication -> summary
 for (int i = 0; i < rows; i++) 
 {
     for (int j = 0; j < collumns; j++) 
@@ -120,19 +126,17 @@ for (int i = 0; i < rows; i++)
         matrix_multiplication[i][j] = 0;
         for (int k = 0; k < collumns; k++) 
         {
-            //multiply the k-th element of row i with k-th of column j
+            // multiply the k-th element of row i with k-th of column j -> comments must be above code
             matrix_multiplication[i][j] += matrix_first[i][k] * matrix_second[k][j];
         }
     }
 }
 ```
-- Using `/* ... */`(You must use a "*" at the beginning of every line of comment) to:
-    + Describe brief desciption of every single `.c` file.
-    + Explain what is functions' purpose directly above function definition.
+- Using `/* ... */`(You must use a "*" at the beginning of every line of comment) to describe brief desciption of every single `.c` file.
 - e.g:
 ```c
-/*This file C is the main source file of To-do list.
- *Menu can be edited here.
+/* This file C is the main source file of To-do list.
+ * Menu can be edited here.
  */
 #include<stdio.h>
 //main function shows menu, gets user's options, and prints notifications.
