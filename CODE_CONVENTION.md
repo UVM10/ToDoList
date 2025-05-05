@@ -11,7 +11,7 @@
     + Funtion's name must describe what it does.
     + Functions that do the main feature(s)(which is displayed on menu) must have `System` at first.
     + All rules for function's name don't apply on `main` function
-e.g:
+- e.g:
 ```c
 System_task_Add();
 System_Task_Show();
@@ -23,7 +23,7 @@ Table_Make();
     + Using `lower_snake_case`.
     + Variable's name must be noun or noun phrase and meaningful at least in its scope.
     + Do not use the same name for 2 or more variables even if they aren't in the same scope. 
-e.g:
+- e.g:
 ```c
 int id_current = 0;
 
@@ -32,14 +32,14 @@ int main()
     int option; 
 }
 
-SYSTEM_TASK_ADD()
+System_Task_Add()
 {
     int selection;
 }
 ```
 - Constant's name:
     + Using `UPPER_SNAKE_CASE`.
-e.g: 
+- e.g: 
 ```c
 #define ID_LENGTH 8
 #define TASK_AMOUNT 100
@@ -56,7 +56,7 @@ e.g:
     7. Global variables
     8. Public function definitions: definitions of function exported from header files
     9. Private function definition: definitions of function created in this file
-e.g:
+- e.g:
 ```c
 /* Brief description about this file
  * What does it do?
@@ -71,8 +71,8 @@ e.g:
 #include "task.h"
 
 // Macros and constants
-#define Id_Length 8
-#define Title_Length 33
+#define ID_LENGTH 8
+#define TITLE_LENGTH 33
 
 // User-defined data type
 typedef struct
@@ -82,28 +82,28 @@ typedef struct
 }task;
 
 // Private function prototypes
-SYSTEM_TASK_ADD(task *task);
-SYSTEM_TASK_DELETE(task *task);
+System_Task_Add(task *task);
+System_Task_Delete(task *task);
 
 // Global variables
 int index_current = 0;
 
 // Public function definitions
-SYSTEM_TASK_SORT() //This function is exported from header files
+System_Task_Sort() //This function is exported from header files
 {}
 
 // Private function definition
-SYSTEM_TASK_ADD(task *task)
+System_Task_Add(task *task)
 {}
-SYSTEM_TASK_DELETE(task *task)
+System_Task_Delete(task *task)
 {}
 ```
 
 # 3. Comment
 There are some rules you must follow when using comments:
 - Comments must be clear and not redundant.
-e.g:
-```sh
+- e.g:
+```c
 // count how many times each task appear. -> clear
 int count = 0;  
 
@@ -111,12 +111,12 @@ int count = 0;
 int index_curent = 0; 
 
 // do somthing -> unclear
-process_data();
+Process_Data();
 ```
 - Using `// ...` to clarify complex logic non-obvious code inside function:
     + Comments must be direct above code. 
     + Comment of a block of code must be summarized directly above block. 
-e.g:
+- e.g:
 ```c
 //matrix multiplication -> summary
 for (int i = 0; i < rows; i++) 
@@ -127,7 +127,7 @@ for (int i = 0; i < rows; i++)
         for (int k = 0; k < collumns; k++) 
         {
             //multiply the k-th element of row i with k-th of column j
-            matrix_multiplication[i][j] += matrix_1[i][k] * matrix_2[k][j];
+            matrix_multiplication[i][j] += matrix_first[i][k] * matrix_second[k][j];
         }
     }
 }
@@ -135,7 +135,7 @@ for (int i = 0; i < rows; i++)
 - Using `/* ... */`(You must use a "*" at the beginning of every line of comment) to:
     + Describe brief desciption of every single `.c` file.
     + Explain what is functions' purpose directly above function definition.
-e.g:
+- e.g:
 ```c
 /*This file C is the main source file of To-do list.
  *Menu can be edited here.
@@ -153,7 +153,7 @@ int main()
 - Using 4 spaces for indentation.
 - Don't use tab.
 - Using 4 spaces for continued line. 
-e.g:
+- e.g:
 ```c
 // Using 4 spaces for continued line.
 printf("verylongggggggggggggggggggggggg
@@ -167,10 +167,10 @@ printf("verylongggggggggggggggggggggggg
 - Align escaped newlines on the left.
 - Don't align consecutive declarations.
 - Align long expression in operations.
-e.g:
+- e.g:
 ```c
 // Align parameters after the open bracket
-someLongFunction(
+Function_Long(
     argument1, argument2);
 
 // Align consecutive preprocessor macros.
@@ -200,10 +200,10 @@ int aaa = bbbbbbbbbbbbbbb +
 - Braces must be on their own lines.
 - `else` must not be in same line with previous `}`.   
 - Don't break `{}` of empty functions, structs, unions, enums. 
-e.g:
+- e.g:
 ```c
 
-int EXAMPLE()
+int Example()
 {}
 
 int main()
@@ -227,7 +227,7 @@ int main()
 - No space after logical `not` operator and style casts.
 - No space before opening parentheses.
 - No space after open bracket and before close bracket even it's empty.
-e.g:
+- e.g:
 ```c
 // Space before and after assignment operators
 task_count += 2
@@ -254,7 +254,7 @@ void f()
 - Always allow short conditional statement and short loop on a single line.
 - Don't break before muti-line string literals. 
 - Don't keep empty line at the start of block.
-e.g:
+- e.g:
 ```c
 // Maximum characters in 1 line is 80
 printf("========================================This is maximum characters in one
@@ -272,7 +272,7 @@ true:                                  false:
 
 // Don't keep empty line at the start of block
  true:                                  false:
-    if (foo)                            if (foo) 
+    if(foo)                             if(foo) 
     {                                   {  
                                             bar();
         bar();                          }
@@ -282,26 +282,26 @@ true:                                  false:
 ## 4.6 Argument and Parameter
 - If a function call or braced initializer list doesn't fit on a line, allow putting all arguments onto the next line.
 - If the function declaration doesn't fit on a line, allow putting all parameters of a function declaration onto the next line.
-e.g:
+- e.g:
 ```c
 // Putting all arguments onto the next line
-COUNT(
+Count(
     number_first, number_second);
 
 // putting all parameters of a function declaration onto the next line
-int COUNT(
+int Count(
     int number_first, int number_second);
 ```
 
 ## 4.7 Comment
 - Using `CommentPragment` for special comments to avoid break lines.
 - Allow break and re-flow comment lines if exceed line limit.
-e.g:
+- e.g:
 ```c
 //Using `CommentPragment`
     // CommentPragmas: '^ FOOBAR pragma:'
     // Will leave the following line unaffected
-    #include <vector> // FOOBAR pragma: veryyyyyyyyyyyyyyyylonngggggggggggggcommmmmment -> isn't broken
+    #include <stdio.h> // FOOBAR pragma: veryyyyyyyyyyyyyyyylonngggggggggggggcommmmmment -> isn't broken
 
 // Allow break and re-flow comment lines if exceed line limit.
     // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of
@@ -315,7 +315,7 @@ e.g:
 - Don't disable clang-format.
 - Set language to Cpp for both C and C++.
 - Other rules based on `LLVM` style if aren't mentioned.
-e.g:
+- e.g:
 ```c
 // Don't use macros to define statements
 #define HELLO printf("Hello World!")
