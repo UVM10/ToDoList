@@ -1,30 +1,30 @@
 # 1. Variable's and function's name
-Rules apply for all names: 
-    - Using `sanke_case` and its variants.
-    - Names must be meaningful, not abbreviated
-    - Maximum length of 20 characters. 
-    - Main noun of name must come first.
-    - Do not use number in name. 
+- Rules apply for all names: 
+    + Using `snake_case` and variation. 
+    + Names must be meaningful, not abbreviated
+    + Maximum length of 20 characters. 
+    + Main noun of name must come first.
+    + Do not use number in name. 
  
 - Function's name:
-    + Using `UPPER_SNAKE_CASE`.
+    + Using `Pascal_Snake_Case`.
     + Funtion's name must describe what it does.
-    + Functions that do the main feature(s) must have `SYSTEM` at first.
+    + Functions that do the main feature(s)(which is displayed on menu) must have `System` at first.
     + All rules for function's name don't apply on `main` function
 e.g:
-```sh
-SYSTEM_TASK_ADD();
-SYSTEM_TASK_SHOW();
-// this function makea a table for display task in `SYSTEM_TASK_SHOW` function
-TABLE_MAKE(); 
+```c
+System_task_Add();
+System_Task_Show();
+// this below function makea a table for display task, what is called in `System_Task_Show` function -> No `System`
+Table_Make(); 
 ```
 
 - Variable's name: 
     + Using `lower_snake_case`.
-    + Variable's name must be noun or noun prase and meaningful at least in its scope.
+    + Variable's name must be noun or noun phrase and meaningful at least in its scope.
     + Do not use the same name for 2 or more variables even if they aren't in the same scope. 
 e.g:
-```sh
+```c
 int id_current = 0;
 
 int main()
@@ -38,15 +38,15 @@ SYSTEM_TASK_ADD()
 }
 ```
 - Constant's name:
-    + Using `Pascal_snake_case`.
+    + Using `UPPER_SNAKE_CASE`.
 e.g: 
-```sh
-#define Id_Length 8
-#define Task_Amount 100
+```c
+#define ID_LENGTH 8
+#define TASK_AMOUNT 100
 ```
 
 # 2. File structure
-Every `.c` file in workspace must follow this structure:
+- Every `.c` file in workspace must follow this structure:
     1. Comment: Brief description about this file
     2. Standard system libraries 
     3. Header files
@@ -57,7 +57,7 @@ Every `.c` file in workspace must follow this structure:
     8. Public function definitions: definitions of function exported from header files
     9. Private function definition: definitions of function created in this file
 e.g:
-```sh
+```c
 /* Brief description about this file
  * What does it do?
  */
@@ -101,46 +101,63 @@ SYSTEM_TASK_DELETE(task *task)
 
 # 3. Comment
 There are some rules you must follow when using comments:
-- Comments must be clear, professional, and not redundant.
+- Comments must be clear and not redundant.
 e.g:
 ```sh
-// count how many times each task appear. -> True
+// count how many times each task appear. -> clear
 int count = 0;  
 
-// Set index_curent to 0 -> False
+// Set index_curent to 0 -> redundant
 int index_curent = 0; 
 
-// do somthing -> False
+// do somthing -> unclear
 process_data();
 ```
-- Using `// ...` to clarify complex logic non-obvius code inside function:
+- Using `// ...` to clarify complex logic non-obvious code inside function:
     + Comments must be direct above code. 
-    + Comment of a block of code must be group and direct above block. 
+    + Comment of a block of code must be summarized directly above block. 
+e.g:
+```c
+//matrix multiplication -> summary
+for (int i = 0; i < rows; i++) 
+{
+    for (int j = 0; j < collumns; j++) 
+    {
+        matrix_multiplication[i][j] = 0;
+        for (int k = 0; k < collumns; k++) 
+        {
+            //multiply the k-th element of row i with k-th of column j
+            matrix_multiplication[i][j] += matrix_1[i][k] * matrix_2[k][j];
+        }
+    }
+}
+```
 - Using `/* ... */`(You must use a "*" at the beginning of every line of comment) to:
     + Describe brief desciption of every single `.c` file.
     + Explain what is functions' purpose directly above function definition.
+e.g:
+```c
+/*This file C is the main source file of To-do list.
+ *Menu can be edited here.
+ */
+#include<stdio.h>
+//main function shows menu, gets user's options, and prints notifications.
+int main()
+{
+    //function body 
+}
+```
 
 # 4. Code formatting
-## 4.1 Identation
+## 4.1 Indentation
 - Using 4 spaces for indentation.
 - Don't use tab.
 - Using 4 spaces for continued line. 
-- Indent if a function definition, declaration, or prototype is wrapped after the return type. 
 e.g:
 ```c
 // Using 4 spaces for continued line.
 printf("verylongggggggggggggggggggggggg
     gggggggggggggggglineeeeeeeeeeeeeeeeee"); 
-
-// Indent if a function definition or declaration is wrapped after the return type.
-bool 
-    TASK_ADD(task *task);
-
-int 
-    TASK_COUNT(int x, int y)
-    {
-        // function body
-    }
 ```
 
 ## 4.2 Alignment
@@ -150,7 +167,6 @@ int
 - Align escaped newlines on the left.
 - Don't align consecutive declarations.
 - Align long expression in operations.
-- Align trailing comments.
 e.g:
 ```c
 // Align parameters after the open bracket
@@ -178,10 +194,6 @@ float       b = 23;
 // Align long expression in operations
 int aaa = bbbbbbbbbbbbbbb +
           ccccccccccccccc;
-
-// Align trailing comments
-int a;     // My comment a       
-int b = 2; // comment  b
 ```
 
 ## 4.3 Braces
@@ -190,7 +202,7 @@ int b = 2; // comment  b
 - Don't break `{}` of empty functions, structs, unions, enums. 
 e.g:
 ```c
-// Braces must be on their own lines
+
 int EXAMPLE()
 {}
 
@@ -215,7 +227,6 @@ int main()
 - No space after logical `not` operator and style casts.
 - No space before opening parentheses.
 - No space after open bracket and before close bracket even it's empty.
-- One space before trailing line comments.
 e.g:
 ```c
 // Space before and after assignment operators
@@ -236,9 +247,6 @@ void f()
     f();                                
     }                                    
 }
-
-// One space before trailing line comments
-int count = 0; //it count amount of tasks 
 ```
 
 ## 4.5 Line
@@ -278,12 +286,11 @@ e.g:
 ```c
 // Putting all arguments onto the next line
 COUNT(
-    int number_first, int number_second);
+    number_first, number_second);
 
 // putting all parameters of a function declaration onto the next line
 int COUNT(
-    int number_first, int number_second)
-    {}
+    int number_first, int number_second);
 ```
 
 ## 4.7 Comment
@@ -291,6 +298,11 @@ int COUNT(
 - Allow break and re-flow comment lines if exceed line limit.
 e.g:
 ```c
+//Using `CommentPragment`
+    // CommentPragmas: '^ FOOBAR pragma:'
+    // Will leave the following line unaffected
+    #include <vector> // FOOBAR pragma: veryyyyyyyyyyyyyyyylonngggggggggggggcommmmmment -> isn't broken
+
 // Allow break and re-flow comment lines if exceed line limit.
     // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of
     // information
@@ -302,7 +314,7 @@ e.g:
 - Don't use macros to define statements.
 - Don't disable clang-format.
 - Set language to Cpp for both C and C++.
-- Other rules set to default if aren't mentioned.
+- Other rules based on `LLVM` style if aren't mentioned.
 e.g:
 ```c
 // Don't use macros to define statements
