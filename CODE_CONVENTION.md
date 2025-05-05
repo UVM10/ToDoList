@@ -22,7 +22,6 @@ Table_Make();
 - Variable's name: 
     + Using `lower_snake_case`.
     + Variable's name must be noun or noun phrase and meaningful at least in its scope.
-    + Do not use the same name for 2 or more variables even if they aren't in the same scope. 
 - e.g:
 ```c
 int id_current = 0;
@@ -30,11 +29,6 @@ int id_current = 0;
 int main()
 {
     int option; 
-}
-
-System_Task_Add()
-{
-    int selection;
 }
 ```
 - Constant's name:
