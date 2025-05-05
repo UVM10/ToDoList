@@ -127,7 +127,7 @@ process_data();
 - Using 4 spaces for continued line. 
 - Indent if a function definition, declaration, or prototype is wrapped after the return type. 
 e.g:
-```sh
+```c
 // Using 4 spaces for continued line.
 printf("verylongggggggggggggggggggggggg
     gggggggggggggggglineeeeeeeeeeeeeeeeee"); 
@@ -152,7 +152,7 @@ int
 - Align long expression in operations.
 - Align trailing comments.
 e.g:
-```sh
+```c
 // Align parameters after the open bracket
 someLongFunction(
     argument1, argument2);
@@ -189,7 +189,7 @@ int b = 2; // comment  b
 - `else` must not be in same line with previous `}`.   
 - Don't break `{}` of empty functions, structs, unions, enums. 
 e.g:
-```sh
+```c
 // Braces must be on their own lines
 int EXAMPLE()
 {}
@@ -208,7 +208,6 @@ int main()
         // body
     }
 }
-
 ```
 
 ## 4.4 Space
@@ -218,7 +217,7 @@ int main()
 - No space after open bracket and before close bracket even it's empty.
 - One space before trailing line comments.
 e.g:
-```sh
+```c
 // Space before and after assignment operators
 task_count += 2
 
@@ -248,7 +247,7 @@ int count = 0; //it count amount of tasks
 - Don't break before muti-line string literals. 
 - Don't keep empty line at the start of block.
 e.g:
-```sh
+```c
 // Maximum characters in 1 line is 80
 printf("========================================This is maximum characters in one
     lines========================================")
@@ -276,7 +275,7 @@ true:                                  false:
 - If a function call or braced initializer list doesn't fit on a line, allow putting all arguments onto the next line.
 - If the function declaration doesn't fit on a line, allow putting all parameters of a function declaration onto the next line.
 e.g:
-```sh
+```c
 // Putting all arguments onto the next line
 COUNT(
     int number_first, int number_second);
@@ -291,7 +290,7 @@ int COUNT(
 - Using `CommentPragment` for special comments to avoid break lines.
 - Allow break and re-flow comment lines if exceed line limit.
 e.g:
-```sh
+```c
 // Allow break and re-flow comment lines if exceed line limit.
     // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of
     // information
@@ -305,7 +304,7 @@ e.g:
 - Set language to Cpp for both C and C++.
 - Other rules set to default if aren't mentioned.
 e.g:
-```sh
+```c
 // Don't use macros to define statements
 #define HELLO printf("Hello World!")
 ```
