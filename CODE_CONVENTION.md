@@ -12,7 +12,7 @@
     + All rules for function's name don't apply on `main` function
 - e.g:
 ```c
-System_task_Add();
+System_Task_Add();
 System_Task_Show();
 // this below function makea a table for display task, what is called in `System_Task_Show` function -> No `System`
 Table_Make(); 
@@ -154,7 +154,7 @@ int main()
 - e.g:
 ```c
 // Using 4 spaces for continued line.
-printf("verylongggggggggggggggggggggggg
+printf("verylongggggggggggggggggggggggg \
     gggggggggggggggglineeeeeeeeeeeeeeeeee"); 
 ```
 
@@ -182,8 +182,10 @@ int b    = 23;
 int ccc  = 23;
 
 // Align escaped newlines on the left
-int aaaa; \
-int b;    \
+#define Add(int a, int b, int c)\
+                 a + b      
+                     
+#define Add(int a, int b, int c) a + b // the same way
 
 // Don't align consecutive declarations
 int         aaaa = 12; //these two are example for align consecutive declarations
