@@ -1,6 +1,3 @@
 ﻿ID,Title,Detail,Status,Priority,Deadline
 <Task's number>,<Task's name>,<Task's content>,<Progress rate(%)>,<How important? (1-5)>,<DD/MM/YY>
-F001,bwjhen,qbwdhqbwdhj,20,4,05/05/25
-F002,jkfvmdk,qwdqdefwf,45,3,03/04/25
-F003,sam,None,45,None,None
-F004,sjnf,None,67,None,None
+
