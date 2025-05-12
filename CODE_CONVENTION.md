@@ -233,7 +233,7 @@ int main()
 task_count += 2
 
 // No space after logical `not` operator and style casts.
-if !(count&1)
+if (!(count&1))
 
 // No space before opening parentheses
 while(true)
