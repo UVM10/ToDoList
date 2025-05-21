@@ -1,0 +1,34 @@
+﻿---
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: AlwaysBreak
+AlignConsecutiveMacros: 'true'
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveDeclarations: 'false'
+AlignEscapedNewlines: Left
+AlignOperands: 'true'
+AllowAllArgumentsOnNextLine: 'true'
+AllowAllParametersOfDeclarationOnNextLine: 'true'
+AllowShortIfStatementsOnASingleLine: Always
+AllowShortLoopsOnASingleLine: 'true'
+AlwaysBreakBeforeMultilineStrings: 'false'
+BreakBeforeBraces: Allman
+ColumnLimit: '80'
+ContinuationIndentWidth: '4'
+DisableFormat: 'false'
+IndentWidth: '4'
+KeepEmptyLinesAtTheStartOfBlocks: 'false'
+Language: Cpp
+ReflowComments: 'true'
+SpaceAfterCStyleCast: 'false'
+SpaceAfterLogicalNot: 'false'
+SpaceBeforeAssignmentOperators: 'true'
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: 'false'
+SpacesBeforeTrailingComments: '5'
+SpacesInCStyleCastParentheses: 'false'
+SpacesInContainerLiterals: 'false'
+SpacesInParentheses: 'false'
+SpacesInSquareBrackets: 'false'
+UseTab: Never
+
+...

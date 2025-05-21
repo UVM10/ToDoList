@@ -1,0 +1,7 @@
+﻿ID,Title,Detail,Status,Priority,Deadline
+<Task's number>,<Task's name>,<Task's content>,<Progress rate(%)>,<How important? (1-5)>,<DD/MM/YY>
+1,Hoạt động thể thao,Chạy bộ 3km,100%,2,4/5/2025
+2,Học ngôn ngữ mới,Học tiếng Anh,100%,4,4/5/2025
+3,Nấu nướng,Cắm cơm,100%,4,4/5/2025
+4,Dọn dẹp nhà cửa,Rửa bát,100%,2,4/5/2025
+5,Viết bản Draft đồ án tốt nghiệp,Dựa trên khung đồ án sẽ thêm nội dung chi tiết cho từng phần,70%,5,6/5/2025

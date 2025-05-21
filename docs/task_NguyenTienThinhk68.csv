@@ -1,0 +1,7 @@
+﻿ID,Title,Detail,Status,Priority,Deadline
+<Task's number>,<Task's name>,<Task's content>,<Progress rate(%)>,<How important? (1-5)>,<DD/MM/YY>
+1,nấu ăn ,nấu bữa tối,100%,3,5-Jan
+2,học,làm bài tập,50%,5,1/5/2025
+3,thể dục,chạy bộ,0%,2,2/5/2025
+4,làm thêm,dạy học,0%,5,2/5/2025
+5,src,sinh hoạt clb,0%,5,2/5/2025

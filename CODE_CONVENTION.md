@@ -320,3 +320,15 @@ int Count(
 // Don't use macros to define statements
 #define HELLO printf("Hello World!")
 ```
+
+# 5. Clang format
+Use `clang-format.txt` to format C file:
+- Command to format app's source code:
+```shell
+clang-format -i main.c
+```
+- Command to format all C file:
+```shell
+clang-format -i *.c
+```
+- You should reformat your code before committing.

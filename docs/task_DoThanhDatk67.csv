@@ -1,0 +1,7 @@
+﻿ID,Title,Detail,Status,Priority,Deadline
+<Task's number>,<Task's name>,<Task's content>,<Progress rate(%)>,<How important? (1-5)>,<DD/MM/YY>
+F01,Nau an,My tom,70,3,2/2/2025
+F02,Hoc,Hoc tieng Anh,60,5,2/3/2025
+F03,Tap the duc,Chay bo 30 phut,50,4,2/4/2025
+F04,Lam bai tap,Giai toan trang 5,80,2,2/5/2025
+F05,Doc sach,Het chuong 1,40,3,2/6/2025
