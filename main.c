@@ -311,7 +311,7 @@ void File_Information_Sort(int *data_type_sort)
     int i                 = 0;
     const int MAX_COLUMNS = 6;
     char *token;
-    data_csv = fopen("docs/task.csv", "r");
+    data_csv = fopen("data/task.csv", "r");
     if(!data_csv)
     {
         return;
@@ -381,8 +381,8 @@ bool System_File_Write(
     bool check;
     char task_write_file[FILE_LINE_LENGTH];
     char line_header[2][FILE_LINE_LENGTH];
-    FILE *data_csv_temp = fopen("docs/task.csv", "r");
-    *data_csv           = fopen("docs/task_temp.csv", "w");
+    FILE *data_csv_temp = fopen("data/task.csv", "r");
+    *data_csv           = fopen("data/task_temp.csv", "w");
     if(!data_csv_temp)
     {
         return false;
@@ -442,8 +442,8 @@ bool System_File_Write(
 
     fclose(*data_csv);
 
-    remove("docs/task.csv");
-    rename("docs/task_temp.csv", "docs/task.csv");
+    remove("data/task.csv");
+    rename("data/task_temp.csv", "data/task.csv");
 
     return true;
 }
@@ -460,7 +460,7 @@ bool System_File_Read(
 
     index_current = 0;
 
-    *data_csv = fopen("docs/task.csv", "r");
+    *data_csv = fopen("data/task.csv", "r");
     if(*data_csv == NULL)
     {
         return false;
