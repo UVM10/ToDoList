@@ -331,4 +331,8 @@ clang-format -i main.c
 ```shell
 clang-format -i *.c
 ```
+- Check if there're any format errors left:
+```shell
+git diff
+```
 - You should reformat your code before committing.
