@@ -9,6 +9,8 @@
     - Edit task
     - Search tasks by names
     - Sort tasks list by completion rate
+    - Read tasks 
+    - Write tasks 
 - This program provide users a simple and light-weight tool for checking and  managing tasks.
 
 
@@ -19,6 +21,8 @@
 - Edit task: Edit task’s name and completion rate.
 - Search task: Search task by name.
 - Sort tasks: Sort tasks by completion rate and display table of tasks.
+- Read tasks: Read id, titles, status of tasks from file
+- Write tasks: Write tasks from application to file 
 
 ![function_diagram.drawio.png](docs/function_diagram.drawio.png)
 
