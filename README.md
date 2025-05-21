@@ -75,6 +75,7 @@ sudo apt install git build-essential -y
     ```sh
     ./utils/clean.sh
     ```
+    
 ## 4. Configuration (Only for coding)
 ### 4.1. Purpose
 - Keep codebase clean and consistent by following code style and rules in CODE_CONVENTION.md
