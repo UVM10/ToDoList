@@ -51,7 +51,7 @@ int main()
         printf("\n==============TODOLIST==============\n");
         printf("There are some requirement you need to know:\n");
         printf("1. Task's title: 32 characters or less than that.\n");
-        printf("2. Task's ID format: WNN.\n");
+        printf("2. Task's ID format: WNNN.\n");
         printf("W: F(From file) or A(From app), NNN: Number(001~200).\n");
         printf("====================================\n");
         printf("1. Add a task\n");

@@ -1,17 +1,17 @@
 ID,Title,Detail,Status,Priority,Deadline
 <Task's number>: <FNNN>,<Task's name>: <unaccented name>,<Task's content>,<Progress rate(%)>: <0~100>,<How important? (1-5)>,<DD/MM/YY>
-F001,nau an,nau bua toi,100,3,5-Jan
-F002,hoc,lam bai tap,50,5,1/5/2025
-F003,the duc,chay bo,0,2,2/5/2025
-F004,lam them,day hoc,0,5,2/5/2025
-F005,src,sinh hoat clb,0,5,2/5/2025
-F006,Nau an,My tom,70,3,2/2/2025
-F007,Hoc,Hoc tieng Anh,60,5,2/3/2025
-F008,Tap the duc,Chay bo 30 phut,50,4,2/4/2025
-F009,Lam bai tap,Giai toan trang 5,80,2,2/5/2025
-F010,Doc sach,Het chuong 1,40,3,2/6/2025
-F011,Hoat dong the thao,Chay bo 3km,100,2,4/5/2025
-F012,Hoc ngon ngu moi,Hoc tieng Anh,100,4,4/5/2025
-F013,Nau nuong,Cam com,100,4,4/5/2025
-F014,Don dep nha cua,Rua bat,100,2,4/5/2025
-F015,Viet ban Draft do an tot nghiep,Dua tren khung do an them noi dung chi tiet cho tung phan,70,5,6/5/2025
+F001,lam them,day hoc,0,5,2/5/2025
+F002,src,sinh hoat clb,0,5,2/5/2025
+F003,ngu trua,nau bua toi,0,3,5-Jan
+F004,an com,None,23,None,None
+F005,Doc sach,Het chuong 1,40,3,2/6/2025
+F006,hoc,lam bai tap,50,5,1/5/2025
+F007,Tap the duc,Chay bo 30 phut,50,4,2/4/2025
+F008,Hoc,Hoc tieng Anh,60,5,2/3/2025
+F009,Viet ban Draft do an tot nghiep,Dua tren khung do an them noi dung chi tiet cho tung phan,70,5,6/5/2025
+F010,Nau an,My tom,70,3,2/2/2025
+F011,Lam bai tap,Giai toan trang 5,80,2,2/5/2025
+F012,Hoat dong the thao,Chay bo 3km,100,2,4/5/2025
+F013,Don dep nha cua,Rua bat,100,2,4/5/2025
+F014,Hoc ngon ngu moi,Hoc tieng Anh,100,4,4/5/2025
+F015,Nau nuong,Cam com,100,4,4/5/2025
