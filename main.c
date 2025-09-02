@@ -50,9 +50,10 @@ int main()
 
         printf("\n==============TODOLIST==============\n");
         printf("There are some requirement you need to know:\n");
-        printf("1. Task's title: 32 characters or less than that.\n");
+        printf("1. Task's title: 32 characters or less than that, and unaccented.\n");
         printf("2. Task's ID format: WNNN.\n");
         printf("W: F(From file) or A(From app), NNN: Number(001~200).\n");
+        printf("3. Task's status(%%): 0~100.\n");
         printf("====================================\n");
         printf("1. Add a task\n");
         printf("2. Delete a task\n");
@@ -133,7 +134,7 @@ bool System_Task_Add(task_new *task, char task_information[][FILE_LINE_LENGTH])
     printf("Enter task's title: ");
     fgets(task[index_current].title, TITLE_LENGTH, stdin);
     task[index_current].title[strcspn(task[index_current].title, "\n")] = 0;
-    printf("Enter task's status: ");
+    printf("Enter task's status(%%): ");
     scanf("%d", &task[index_current].status);
     while(getchar() != '\n');
     printf("Enter task's ID(WNNN): ");
@@ -152,7 +153,7 @@ bool System_Task_Add(task_new *task, char task_information[][FILE_LINE_LENGTH])
     strcpy(task_information[index_current], task[index_current].id);
 
     printf("Task's title is: %s\n", task[index_current].title);
-    printf("Task's status is: %d\n", task[index_current].status);
+    printf("Task's status is: %d%%\n", task[index_current].status);
     printf("Task's ID is: %s\n", task[index_current].id);
     index_current++;
     return true;
@@ -319,7 +320,6 @@ void File_Information_Sort(int *data_type_sort)
 
     if(fgets(line_head, FILE_LINE_LENGTH, data_csv) != NULL)
     {
-        // Loại bỏ ký tự xuống dòng ở cuối chuỗi
         line_head[strcspn(line_head, "\r\n")] = '\0';
         if(strlen(line_head) >= 3 && (unsigned char)line_head[0] == 0xEF &&
            (unsigned char)line_head[1] == 0xBB &&
@@ -340,7 +340,7 @@ void File_Information_Sort(int *data_type_sort)
             else if(strcmp(token, "Priority") == 0)
                 data_type_sort[i] = 5;
             else
-                data_type_sort[i] = 6;     // Các trường khác
+                data_type_sort[i] = 6;    
 
             token = strtok(NULL, ",");
             i++;
@@ -419,7 +419,7 @@ bool System_File_Write(
             case 6:
                 if(task_information[i][0] == 'A')
                 {
-                    fprintf(*data_csv, "None,");
+                    fprintf(*data_csv, ",");
                 }
                 else if(task_information[i][0] == 'F')
                 {
