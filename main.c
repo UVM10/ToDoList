@@ -168,12 +168,12 @@ bool System_Task_Delete(
         printf("There is no task!\n");
         return false;
     }
-    printf("Enter task's ID you want to delete (1 ~ %d): ", index_current);
+    printf("Enter task's number you want to delete (1 ~ %d): ", index_current);
     scanf("%d", &id_delete);
     while(getchar() != '\n');
     if(id_delete < 1 || id_delete > index_current)
     {
-        printf("Invalid ID!\n");
+        printf("Invalid number!\n");
         return false;
     }
     for(int i = id_delete - 1; i < index_current - 1; i++)
